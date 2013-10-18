@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Goodlister</title>
+		{% include "header.html" %}
+	</head>
+	
+<body>
+	<div class="frontpage main">
+		<header class="frontpage_h">
+			<h1><a href="/">Goodlister</a></h1>
+			<h3>beautiful, hassle-free listing of stuff for sale</h3>
+		</header>
+
+		<a href="#" id="sell" class="sell_item gl_button">Sell a new item</a>
+
+		{% if my_listings %}
+			<h3>My listings</h3>
+		{% endif %}
+		<ul class="my_listings">
+		{% for item in my_listings %}
+			<li><a href="{{item.link}}">{{item.title}}</a></li>
+		{% endfor %}
+		</ul>
+	</div>
+	<script>
+		$('#sell').on('click', function(event) {
+			event.preventDefault();
+			$('#sell').fadeOut();
+			window.location.href = '/new';
+		});
+	</script>
+</body>
+</html>

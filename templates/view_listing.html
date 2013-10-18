@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{details.title}} on GoodLister</title>
+		{% include "header.html" %}
+	</head>
+	
+<body>
+	<div class="main">
+		<section class="seller">
+			<div class="masthead">GoodLister</div>
+			<div class="lister_avatar"><img src="{{pic}}"><a href="http://twitter.com/{{username}}">{{username}}</a></div>
+		</section>
+		<header class="listing_h">
+			<h3 class="postedby">posted by <a href="http://twitter.com/{{details.poster}}">@{{details.poster}}</a></h3>
+			<h1 class="title" id="title">{{details.title}}</h1>
+			<h2 class="price" id="price">{{details.price}}</h2>
+			<section class="action_links">
+				<!-- <a class="buy gl_button" href="#">Buy</a> -->
+				<a class="share gl_button" href="#" id="share">Share</a>
+				{%if editable %}
+					<a class="edit">Edit</a>
+				{% endif %}
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style " id="addthis">
+					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+					<a class="addthis_button_tweet" tw:via="{{details.poster}}"></a>
+					<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+					<a class="addthis_counter addthis_pill_style"></a>
+				</div>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5260f7e169163d49"></script>
+				<!-- AddThis Button END -->
+			</section>
+		</header>
+		<section class="gallery">
+			{% for photo in details.photos %}
+				<figure><a href="{{photo}}" target="_blank"><img src="{{photo}}"></a></figure>
+			{% endfor %}
+		</section>
+		<section class="details">
+			<article class="includes">
+				<h3 class="details_h">What's included</h3>
+				<p id="incl">{{details.incl}}
+				</p>
+			</article>
+			<article class="condition">
+				<h3 class="details_h">Condition</h3>
+				<p id="condition">{{details.cond}}</p>
+			</article>
+			<article class="description">
+				<h3 class="details_h">About</h3>
+				<p id="about">
+					{{details.about}}
+				</p>
+			</article>
+
+			<article class="delivery">
+				<h3 class="details_h">Delivery</h3>
+				<p id="delivery">{{details.delivery}}</p>
+			</article>
+
+			<article class="questions">
+				<h3 class="details_h">Further questions</h3>
+				<p id="questions">{{details.questions}}</p> 
+			</article>
+		</section>
+		
+	</div>
+	<script>
+		$('#share').on("click", show_share);
+
+		function show_share(evt) {
+			evt.preventDefault();
+			if ($('#addthis').css('display') == 'none') {
+				$('#addthis').fadeIn();
+			}
+			else {
+				$('#addthis').fadeOut();
+			}	
+		}
+	</script>
+</body>
+</html>

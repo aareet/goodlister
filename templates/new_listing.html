@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit your new listing</title>
+		{% include "header.html" %}
+	</head>
+	
+<body>
+	<div class="main">
+		<section class="seller">
+			<div class="masthead">GoodLister</div>
+			<div class="lister_avatar"><img src="{{pic}}"><a href="http://twitter.com/{{username}}">{{username}}</a></div>
+		</section>
+		<header class="listing_h">
+			<textarea name="title" class="title_input" id="title" placeholder="Enter a title" autocomplete="off"></textarea>
+			<input name="price" class="price_input" id="price" placeholder="price (e.g. $150)" autocomplete="off" pattern="^\d+(,\d{1,2,3})?$">
+			<section class="action_links">
+				<a class="post gl_button" href="#" id="post">Post</a>
+			</section>
+		</header>
+		<section class="addpics">
+			<label for="uploadfile" class="label gl_button">Add pictures</label>
+			<input type="file" id="uploadfile" multiple="multiple">
+			<output id="thumbs"></output>
+		</section>
+		<section class="details">
+			<article class="condition">
+				<h3 class="details_h">Condition</h3>
+				<textarea id="condition" placeholder="Does the item have scratches? How long have you had it for? Mention anything the buyer would want to know about the condition of your item." rows="4"></textarea>
+			</article>
+			<article class="includes">
+				<h3 class="details_h">What's included</h3>
+				<textarea id="incl" placeholder="This section is for mentioning everything that's in the box. e.g. cables, controllers, adapters etc." rows="4"></textarea>
+			</article>
+			<article class="description">
+				<h3 class="details_h">About</h3>
+				<textarea id="about" placeholder="This section is for the main description of the item. Include specs and any other information about the item such as model, quality, what makes it great etc. Want to be profiled as a featured listing? Write the story behind your item." rows="10"></textarea>
+			</article>
+
+			<article class="delivery">
+				<h3 class="details_h">Delivery</h3>
+				<textarea id="delivery" placeholder="List the shipping methods available to the buyer e.g. Free shipping to Canada and the US. " rows="5"></textarea>
+			</article>
+
+			<article class="questions">
+				<h3 class="details_h">Further questions</h3>
+				<textarea id="questions" placeholder="How can the buyer reach you? Email is usually the best method, but if you want, you could include your phone number. Are you comfortable taking questions publicly via twitter? Mention that." rows="5"></textarea>
+			</article>
+		</section>
+	</div>
+	<script type="text/javascript">
+	{% include "edit.js" %}
+	</script>
+</body>
+</html>

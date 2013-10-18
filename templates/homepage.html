@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Goodlister</title>
+		{% include "header.html" %}
+	</head>
+	
+<body>
+	<div class="frontpage main">
+		<header class="frontpage_h">
+			<h1>Goodlister</h1>
+			<h3>beautiful, hassle-free listing of stuff for sale</h3>
+		</header>
+		<div class="actions">
+			<a href="#" id="sell" class="sell_item gl_button">I want to sell an item</a>
+			<a href="/twitter_sign_in?next=http://google.com" id="twitter_signin" class="twitter_signin gl_button">Sign in with Twitter</a>
+			<a href="#" class="buyer gl_button">I want to buy something</a>
+			<div class="notyet">That feature is not available yet. Follow us on twitter: <a href="http://twitter.com/goodlister">@goodlister</a> to keep an eye out for it.</div>
+		</div>
+	</div>
+	<div class="story">
+	</div>
+	<h4 class="copyright">&copy; 2013 <a href="http://mesh8.co">Mesh8 Inc.</a></h4>
+	<script>
+		$('#sell').on('click', function(event) {
+			event.preventDefault();
+			$('#sell').fadeOut();
+			$('#twitter_signin').delay(400).fadeIn();
+		});
+
+		$('.buyer').on('click', function(event) {
+			event.preventDefault();
+			if ($('.notyet').css('display') != 'none') {
+				$('.notyet').hide();
+				$('.buyer').html('I want to buy something');
+			} else {
+				$('.notyet').fadeIn();
+				$('.buyer').html('Ok');
+			}
+			
+		});
+	</script>
+</body>
+</html>
