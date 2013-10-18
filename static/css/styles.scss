@@ -56,6 +56,15 @@ a, a:visited {
 		font-size: 1em;
 		width: 20%;
 	}
+
+	a {
+		text-decoration: none;
+		color: #000;
+		&:visited {
+			color: #000;
+			text-decoration: none;
+		}
+	}
 }
 
 .listing_h {
@@ -282,6 +291,15 @@ a, a:visited {
 
 		@media only screen and (min-width: 768px) {
 			font-size: 4em;
+		}
+
+		a {
+			text-decoration: none;
+			color: #000;
+			&:visited {
+				color: #000;
+				text-decoration: none;
+			}
 		}
 	}
 	h3 {
