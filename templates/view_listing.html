@@ -9,7 +9,11 @@
 	<div class="main">
 		<section class="seller">
 			<div class="masthead"><a href="/">GoodLister</a></div>
-			<div class="lister_avatar"><img src="{{pic}}"><a href="http://twitter.com/{{username}}">{{username}}</a></div>
+			{% if username %}
+				<div class="lister_avatar"><img src="{{pic}}"><a href="http://twitter.com/{{username}}">{{username}}</a></div>
+			{% else %}
+				<div class="lister_avatar"><a href="/twitter_sign_in">Sign in</a></div>
+			{% endif %}
 		</section>
 		<header class="listing_h">
 			<h3 class="postedby">posted by <a href="http://twitter.com/{{details.poster}}">@{{details.poster}}</a></h3>

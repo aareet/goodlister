@@ -134,8 +134,11 @@ def view_listing(listing_id):
 	details['questions'] = listing.question
 	details['photos'] = json.loads(listing.photos)
 	details['poster'] = listing.poster
-	return render_template('view_listing.html', details=details, 
+	if active_session():
+		return render_template('view_listing.html', details=details, 
 		username=session['username'], pic=session['pic'])
+	else:
+		return render_template('view_listing.html', details=details)
 
 
 @app.route('/logout')
