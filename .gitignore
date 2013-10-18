@@ -2,3 +2,4 @@
 *.DS_Store
 prodlist_env/
 .sass-cache/
+.env

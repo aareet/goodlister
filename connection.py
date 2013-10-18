@@ -1,8 +1,9 @@
 from parse_rest.connection import register
 from parse_rest.datatypes import Object
+import os
 
-PARSE_APP_ID = '0mkFhot3vjLg97Dg3iCr7O5iABrvcP0xID6d4EqR'
-PARSE_REST_API_KEY = '3w3ykTpvt6EeGTLlkdJdUA0Oqezgm02Y7wblKnjM'
+PARSE_APP_ID = os.environ['PARSE_APP_ID']
+PARSE_REST_API_KEY = os.environ['PARSE_REST_API_KEY']
 
 register(PARSE_APP_ID, PARSE_REST_API_KEY)
 

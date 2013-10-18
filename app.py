@@ -2,16 +2,23 @@ from flask import Flask, render_template, request, json, session, redirect, url_
 import re, base64, os, binascii
 import connection
 from connection import Listing, User
-from config import TWITTER_KEYS, AWS
 from parse_rest.query import QueryResourceDoesNotExist
 import tweepy, boto
 from boto.s3.key import Key
 app = Flask(__name__)
 
+DOMAIN = os.environ['DOMAIN']
+TWITTER_KEYS = {}
+TWITTER_KEYS['key'] = os.environ['TWITTER_CONSUMER_KEY']
+TWITTER_KEYS['secret'] = os.environ['TWITTER_CONSUMER_SECRET']
+AWS = {}
+AWS['id'] = os.environ['AWS_ID']
+AWS['secret'] = os.environ['AWS_SECRET']
+AWS['bucket'] = os.environ['AWS_BUCKET']
+
 app.secret_key = '%\xb3\xc0\x0cf\x19\xb0y\x16K\x8b\xdd\xb7j`\xce\xbc|\xae\xa9&\x92Q\xa4'
 auth = tweepy.OAuthHandler(TWITTER_KEYS['key'], TWITTER_KEYS['secret'])
 
-DOMAIN = 'http://goodlister.com'
 
 @app.route('/')
 def index():
@@ -202,7 +209,7 @@ def upload_pic_to_s3():
 			os.remove(filename)
 
 			print "Uploaded to S3"
-			img_url = 'https://s3.amazonaws.com/gl-darkhorse-1/' + filename
+			img_url = 'https://' + AWS['bucket'] + '.s3.amazonaws.com/' + filename
 
 			"""
 			listing = Listing.Query.get(objectId=listing_id)
