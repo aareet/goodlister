@@ -49,12 +49,12 @@ def twitter_sign_in():
 
 @app.route('/login_callback')
 def twitter_callback():
-	if 'next' in request.args:
-		print request.args.get('next')
 	oauth_token = request.args.get('oauth_token')
 	oauth_verifier = request.args.get('oauth_verifier')
 	#print "oauth token: ", oauth_token, " oauth verifier: ", oauth_verifier
 	#TODO: check oauth verifier and token for match
+	auth = tweepy.OAuthHandler(TWITTER_KEYS['key'], TWITTER_KEYS['secret'])
+	auth.set_request_token(session['request_token_key'], session['request_token_secret'])
 	access_token = auth.get_access_token(verifier=oauth_verifier)
 	session['access_token_key'] = access_token.key
 	session['access_token_secret'] = access_token.secret
