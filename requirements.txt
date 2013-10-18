@@ -5,6 +5,6 @@ Werkzeug==0.9.4
 boto==2.14.0
 gunicorn==18.0
 itsdangerous==0.23
-parse-rest==0.2.20131001
+git+https://github.com/dgrtwo/ParsePy.git
 tweepy==2.1
 wsgiref==0.1.2
