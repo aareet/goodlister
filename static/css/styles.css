@@ -338,7 +338,8 @@ a.buy, a.share, a.post {
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
-    padding: 5%; }
+    padding: 5%;
+    border: 1px solid #000; }
     .my_listings a:hover {
       color: #000; }
 

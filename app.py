@@ -132,7 +132,7 @@ def view_listing(listing_id):
 		return "no listing found"
 
 	details = {}
-	details['title'] = listing.title	
+	details['title'] = listing.title
 	details['price'] = listing.price
 	details['incl'] = listing.incl
 	details['cond'] = listing.cond

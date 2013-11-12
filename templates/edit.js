@@ -1,5 +1,7 @@
 var images = [];
 
+images = {{details.photos}};
+
 $('#uploadfile').on('change', handle_upload_button);
 $('#post').on('click', function(event) {
 	event.preventDefault();
@@ -25,7 +27,7 @@ function handle_upload_button(evt) {
 					var count = 0;
 					var span = document.createElement('span');
 					span.innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '">'].join('');
-					$('#thumbs').append(span);
+					$('#thumbs').append(span);	
 					upload_file_to_server(e.target.result, count);
 				};
 			})(f);
