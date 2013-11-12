@@ -407,4 +407,30 @@ a.buy, a.share, a.post {
 
 .my_listings {
 	list-style: none;
+
+	li {
+		width: 40%;
+		margin: 0 auto;
+	}
+
+	a {
+		display: block;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-decoration: none;
+		text-transform: uppercase;
+		text-align: center;
+		padding:5%;
+
+		&:hover {
+			color: #000;
+		}
+	}
+}
+
+.my_listings_h {
+	font-size: 3em;
+	text-transform: uppercase;
+	font-weight: 100;
+	margin-top: 5%;
 }

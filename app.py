@@ -141,6 +141,7 @@ def view_listing(listing_id):
 	details['questions'] = listing.question
 	details['photos'] = json.loads(listing.photos)
 	details['poster'] = listing.poster
+	details['listing_id'] = listing.objectId
 	if active_session():
 		return render_template('view_listing.html', details=details, 
 		username=session['username'], pic=session['pic'])

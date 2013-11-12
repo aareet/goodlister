@@ -9,13 +9,13 @@
 	<div class="frontpage main">
 		<header class="frontpage_h">
 			<h1><a href="/">Goodlister</a></h1>
-			<h3>beautiful, hassle-free listing of stuff for sale</h3>
+			
 		</header>
 
 		<a href="#" id="sell" class="sell_item gl_button">Sell a new item</a>
 
 		{% if my_listings %}
-			<h3>My listings</h3>
+			<h3 class="my_listings_h">My listings</h3>
 		{% endif %}
 		<ul class="my_listings">
 		{% for item in my_listings %}

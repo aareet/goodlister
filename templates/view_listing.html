@@ -22,8 +22,8 @@
 			<section class="action_links">
 				<!-- <a class="buy gl_button" href="#">Buy</a> -->
 				<a class="share gl_button" href="#" id="share">Share</a>
-				{%if editable %}
-					<a class="edit">Edit</a>
+				{%if username == details.poster %}
+					<a class="gl_button share" href="http://goodlister.com/{{details.listing_id}}/edit">Edit</a>
 				{% endif %}
 				<!-- AddThis Button BEGIN -->
 				<div class="addthis_toolbox addthis_default_style " id="addthis">
