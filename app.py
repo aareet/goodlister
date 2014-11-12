@@ -40,14 +40,14 @@ def index():
 
 @app.route('/twitter_sign_in')
 def twitter_sign_in():
-	next = request.args.get('next')
+	#next = request.args.get('next')
 	if active_session():
-		if next == '/new':
-			return redirect(url_for('new_listing'))
-		else:
-			return redirect(url_for('index'))
+		return redirect(url_for('new_listing'))
 	else:
-		redirect_url = auth.get_authorization_url(signin_with_twitter=True)
+		try:
+			redirect_url = auth.get_authorization_url(signin_with_twitter=True)
+		except Exception as e:
+			print e
 		session['request_token_key'] = auth.request_token.key
 		session['request_token_secret'] = auth.request_token.secret
 		print "request token key: ", session['request_token_key'], ' request token sec: ', session['request_token_secret']
@@ -166,6 +166,7 @@ def post():
 			fields[k] = v
 
 		fields['poster'] = session['username']
+		fields['is_live'] = 1
 		listing = None
 		try:
 			listing = Listing.Query.get(objectId=fields['obj_id'])
@@ -179,6 +180,21 @@ def post():
 		url = DOMAIN + '/gl/' + listing.objectId
 		return json.dumps({'success': True, 'listing_url': url}), 200
 	return "Sorry, that's not allowed", 405
+
+
+@app.route('/api/forsale', methods=['GET'])
+def for_sale():
+
+	listings = Listing.Query.filter(is_live=1)
+	forsale = []
+	for l in listings:
+		item = {}
+		item['title'] = l.title
+		item['price'] = l.price
+		item['photos'] = json.loads(l.photos)
+		forsale.append(item)
+
+	return forsale
 
 
 @app.route('/api/upload_pic', methods=['POST'])
@@ -242,4 +258,5 @@ def convert(input):
 
 
 if __name__ == '__main__':
+	app.debug = True
 	app.run()

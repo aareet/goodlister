@@ -1,6 +1,8 @@
 var images = [];
 
-images = {{details.photos}};
+if("{{details.photos}}" == "") {
+	console.log("empty");
+}
 
 $('#uploadfile').on('change', handle_upload_button);
 $('#post').on('click', function(event) {
@@ -17,7 +19,7 @@ function handle_upload_button(evt) {
 		for (var i=0, f; f = files[i]; i++) {
 			if (!f.type.match('image.*')) {
 				console.log('file type not supported');
-				continue;	
+				continue;
 			}
 
 			var reader = new FileReader();

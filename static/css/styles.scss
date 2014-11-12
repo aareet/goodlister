@@ -410,10 +410,11 @@ a.buy, a.share, a.post {
 
 	li {
 		width: 40%;
-		margin: 0 auto;
+		margin: 25px auto;
 	}
 
 	a {
+		color: #000;
 		display: block;
 		font-size: 1.2em;
 		font-weight: bold;
@@ -424,7 +425,9 @@ a.buy, a.share, a.post {
 		border: 1px solid #000;
 
 		&:hover {
-			color: #000;
+			color: $fg;
+			border-color: $fg;
+
 		}
 	}
 }

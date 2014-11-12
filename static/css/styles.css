@@ -330,8 +330,9 @@ a.buy, a.share, a.post {
   list-style: none; }
   .my_listings li {
     width: 40%;
-    margin: 0 auto; }
+    margin: 25px auto; }
   .my_listings a {
+    color: #000;
     display: block;
     font-size: 1.2em;
     font-weight: bold;
@@ -341,7 +342,8 @@ a.buy, a.share, a.post {
     padding: 5%;
     border: 1px solid #000; }
     .my_listings a:hover {
-      color: #000; }
+      color: #e74c3c;
+      border-color: #e74c3c; }
 
 .my_listings_h {
   font-size: 3em;
