@@ -35,15 +35,16 @@ def sell():
 		live_listings = []
 		draft_listings = []
 		for listing in listings:
-			d = {}
+			#import pdb; pdb.set_trace()
+			d = listing.get_parameters()
+			if not d:
+				listing.delete()
+				continue
 			d['link'] = DOMAIN + '/' + listing.objectId + '/edit'
 			if listing.is_live == 1:
-				d['title'] = listing.title
 				live_listings.append(d)
 			else:
-				try:
-					d['title'] = listing.title
-				except: 
+				if not d['title']:
 					d['title'] = 'unfinished listing'
 				draft_listings.append(d)
 		return render_template('homepage_loggedin.html', username=username, pic=session['pic'], live_listings=live_listings, draft_listings=draft_listings)
@@ -198,7 +199,6 @@ def post():
 @app.route('/forsale', methods=['GET'])
 def for_sale():
 	listings = Listing.Query.filter(is_live=1)
-	print listings
 	forsale = []
 	for l in listings:
 		item = {}
@@ -206,7 +206,6 @@ def for_sale():
 		item['price'] = l.price
 		item['photos'] = json.loads(l.photos)
 		item['link'] = DOMAIN + "/gl/" + l.objectId
-		print item
 		forsale.append(item)
 
 	if active_session():
