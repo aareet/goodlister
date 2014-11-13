@@ -4,6 +4,7 @@ $mainbg: #fff; // #f4f0ee;
 $basefont: 'proxima-nova', 'courier-prime',  'Courier';
 $greyfont: #CFCFCF;
 $fg: #e74c3c;
+$fg2: #0a1013;
 
 * {
 	box-sizing: border-box;
@@ -310,46 +311,48 @@ a, a:visited {
 }
 
 a.twitter_signin {
+	display: none;
+	width: 321px;
 	color: #fff;
 	background: #00acee;
 	border: 3px solid #00acee;
-	font-size: 1.4em;
+	font-size: 1.2em;
 	&:hover {
 		color: #00acee;
 	}
-	display: none;
-	padding: 1.5% 2.5%;
+	@media only screen and (min-width: 768px) {
+		font-size: 1.3em;
+		width: 321px;
+	}
 }
 
 a.sell_item {
-	width: 80%;
+	width: 321px;
 	color: #fff;
 	font-size: 1.2em;
-	padding: 1.5% 2.5%;
 	display: block;
-	margin: 20px auto;
 
 	@media only screen and (min-width: 768px) {
 		font-size: 1.3em;
-		width: 50%;
+		width: 321px;
 	}
 }
 
 a.buyer {
-	width: 80%;
+	width: 321px;
 	color: #fff;
 	font-size: 1.2em;
 	padding: 1.5% 2.5%;
 	display: block;
 	margin: 20px auto;
-	background: $greyfont;
-	border-color: $greyfont;
+	background: $fg2;
+	border-color: $fg2;
 	&:hover {
-		color: $greyfont;
+		color: #000;
 	}
 	@media only screen and (min-width: 768px) {
 		font-size: 1.3em;
-		width: 50%;
+		width: 321px;
 	}
 }
 
@@ -372,6 +375,7 @@ a.buy, a.share, a.post {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 0.1em;
+	margin: 20px auto;
 	&:hover {
 		background: #fff;
 		color: $fg;
@@ -437,4 +441,43 @@ a.buy, a.share, a.post {
 	text-transform: uppercase;
 	font-weight: 100;
 	margin-top: 5%;
+}
+
+.forsale_items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		text-align: center;
+		display: inline-block;
+		width: 40%;
+		padding-right: 2%;
+
+		a {
+			text-decoration: none;
+			color: #000;
+			.item_title {
+				font-size: 1em;
+			}
+
+			.item_price {
+				font-size: 0.8em;
+				color: $fg;
+			}
+
+			img {
+				max-width: 200px;
+				max-height: 200px;
+			}
+		}
+	}
+}
+
+.forsale_container {
+
+	background: $mainbg;
+
+	@media only screen and (min-width: 768px) {
+		width: 65%;
+	}
 }

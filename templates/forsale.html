@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Goodlister</title>
+		{% include "header.html" %}
+	</head>
+	
+<body>
+	<div class="forsale_container">
+
+		{% if forsale_items %}
+			<h3 class="my_listings_h">Stuff for sale</h3>
+		{% endif %}
+		<ul class="forsale_items">
+		{% for item in forsale_items %}
+			<li>
+
+				<a href="{{item.link}}">
+					<img src="{{item.photos[0]}}">
+					<div class="item_title">{{item.title}}</div>
+					<div class="item_price">{{item.price}}</div>
+				</a>
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+	<script>
+		
+	</script>
+</body>
+</html>

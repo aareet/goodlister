@@ -182,19 +182,22 @@ def post():
 	return "Sorry, that's not allowed", 405
 
 
-@app.route('/api/forsale', methods=['GET'])
+@app.route('/forsale', methods=['GET'])
 def for_sale():
 
 	listings = Listing.Query.filter(is_live=1)
+	print listings
 	forsale = []
 	for l in listings:
 		item = {}
 		item['title'] = l.title
 		item['price'] = l.price
 		item['photos'] = json.loads(l.photos)
+		item['link'] = DOMAIN + "/gl/" + l.objectId
+		print item
 		forsale.append(item)
 
-	return forsale
+	return render_template("forsale.html", forsale_items=forsale)
 
 
 @app.route('/api/upload_pic', methods=['POST'])

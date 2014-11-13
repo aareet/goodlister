@@ -246,42 +246,44 @@ a, a:visited {
     font-weight: 300; }
 
 a.twitter_signin {
+  display: none;
+  width: 321px;
   color: #fff;
   background: #00acee;
   border: 3px solid #00acee;
-  font-size: 1.4em;
-  display: none;
-  padding: 1.5% 2.5%; }
+  font-size: 1.2em; }
   a.twitter_signin:hover {
     color: #00acee; }
+  @media only screen and (min-width: 768px) {
+    a.twitter_signin {
+      font-size: 1.3em;
+      width: 321px; } }
 
 a.sell_item {
-  width: 80%;
+  width: 321px;
   color: #fff;
   font-size: 1.2em;
-  padding: 1.5% 2.5%;
-  display: block;
-  margin: 20px auto; }
+  display: block; }
   @media only screen and (min-width: 768px) {
     a.sell_item {
       font-size: 1.3em;
-      width: 50%; } }
+      width: 321px; } }
 
 a.buyer {
-  width: 80%;
+  width: 321px;
   color: #fff;
   font-size: 1.2em;
   padding: 1.5% 2.5%;
   display: block;
   margin: 20px auto;
-  background: #cfcfcf;
-  border-color: #cfcfcf; }
+  background: #0a1013;
+  border-color: #0a1013; }
   a.buyer:hover {
-    color: #cfcfcf; }
+    color: #000; }
   @media only screen and (min-width: 768px) {
     a.buyer {
       font-size: 1.3em;
-      width: 50%; } }
+      width: 321px; } }
 
 .actions {
   margin: 0 auto;
@@ -299,7 +301,8 @@ a.buy, a.share, a.post {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: 0.1em; }
+  letter-spacing: 0.1em;
+  margin: 20px auto; }
   .gl_button:hover {
     background: #fff;
     color: #e74c3c; }
@@ -350,3 +353,30 @@ a.buy, a.share, a.post {
   text-transform: uppercase;
   font-weight: 100;
   margin-top: 5%; }
+
+.forsale_items {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .forsale_items li {
+    text-align: center;
+    display: inline-block;
+    width: 40%;
+    padding-right: 2%; }
+    .forsale_items li a {
+      text-decoration: none;
+      color: #000; }
+      .forsale_items li a .item_title {
+        font-size: 1em; }
+      .forsale_items li a .item_price {
+        font-size: 0.8em;
+        color: #e74c3c; }
+      .forsale_items li a img {
+        max-width: 200px;
+        max-height: 200px; }
+
+.forsale_container {
+  background: white; }
+  @media only screen and (min-width: 768px) {
+    .forsale_container {
+      width: 65%; } }
