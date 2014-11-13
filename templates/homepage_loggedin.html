@@ -7,16 +7,8 @@
 	
 <body>
 	<div class="main_container">
-		<header class="app_header">
-			<div class="logo">goodlister</div>
-			<nav>
-				<ul>
-					<li><a href="/forsale">Buy</a></li><li><a href="/">Sell</a></li><li><a href="/" class="settings">Settings</a></li>
-				</ul>
-			</nav>
-		</header>
+		{% include "topbar.html" %}
 		<div class="dashboard content">
-
 			<a href="/new" id="sell" class="sell_new_item gl_button">Sell a new item</a>
 
 			{% if my_listings %}

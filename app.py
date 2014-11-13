@@ -23,6 +23,13 @@ auth = tweepy.OAuthHandler(TWITTER_KEYS['key'], TWITTER_KEYS['secret'])
 @app.route('/')
 def index():
 	if active_session():
+		return redirect(url_for('sell'))
+	else:
+		return render_template('homepage.html')
+
+@app.route('/sell')
+def sell():
+	if active_session():
 		username = session['username']
 		listings = Listing.Query.filter(poster=username)
 		my_listings = []
@@ -35,14 +42,14 @@ def index():
 				d['title'] = 'unfinished listing'
 			my_listings.append(d)
 		return render_template('homepage_loggedin.html', username=username, pic=session['pic'], my_listings=my_listings)
-	return render_template('homepage.html')
-
+	else:
+		return redirect(url_for('twitter_sign_in'))
 
 @app.route('/twitter_sign_in')
 def twitter_sign_in():
 	#next = request.args.get('next')
 	if active_session():
-		return redirect(url_for('new_listing'))
+		return redirect(url_for(index))
 	else:
 		try:
 			redirect_url = auth.get_authorization_url(signin_with_twitter=True)
