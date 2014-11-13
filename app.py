@@ -104,6 +104,7 @@ def new_listing():
 	if active_session():
 		listing = Listing()
 		listing.poster = session['username']
+		listing.is_live = 0
 		listing.save()
 		objectId = listing.objectId
 		redirect_url = '/' + objectId + '/edit'
@@ -275,4 +276,6 @@ def convert(input):
 
 
 if __name__ == '__main__':
+	#app.debug = True
 	app.run()
+
