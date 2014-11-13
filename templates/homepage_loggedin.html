@@ -11,14 +11,24 @@
 		<div class="dashboard content">
 			<a href="/new" id="sell" class="sell_new_item gl_button">Sell a new item</a>
 
-			{% if my_listings %}
+			{% if live_listings or draft_listings %}
 			<h3 class="my_listings_h">My listings</h3>
 			{% endif %}
 
 			<ul class="my_listings">
-			{% for item in my_listings %}
+			{% if live_listings %}
+				<h4 class="published">Published</h4>
+				{% for item in live_listings %}
 				<li><a href="{{item.link}}">{{item.title}}</a></li>
-			{% endfor %}
+				{% endfor %}
+			{% endif %}
+			
+			{% if draft_listings %}
+				<h4>Drafts</h4>
+				{% for item in draft_listings %}
+				<li><a href="{{item.link}}">{{item.title}}</a></li>
+				{% endfor %}
+			{% endif %}
 			</ul>
 		</div>
 	</div>

@@ -32,16 +32,21 @@ def sell():
 	if active_session():
 		username = session['username']
 		listings = Listing.Query.filter(poster=username)
-		my_listings = []
+		live_listings = []
+		draft_listings = []
 		for listing in listings:
 			d = {}
 			d['link'] = DOMAIN + '/' + listing.objectId + '/edit'
-			try:
+			if listing.is_live == 1:
 				d['title'] = listing.title
-			except:
-				d['title'] = 'unfinished listing'
-			my_listings.append(d)
-		return render_template('homepage_loggedin.html', username=username, pic=session['pic'], my_listings=my_listings)
+				live_listings.append(d)
+			else:
+				try:
+					d['title'] = listing.title
+				except: 
+					d['title'] = 'unfinished listing'
+				draft_listings.append(d)
+		return render_template('homepage_loggedin.html', username=username, pic=session['pic'], live_listings=live_listings, draft_listings=draft_listings)
 	else:
 		return redirect(url_for('twitter_sign_in'))
 
@@ -191,7 +196,6 @@ def post():
 
 @app.route('/forsale', methods=['GET'])
 def for_sale():
-
 	listings = Listing.Query.filter(is_live=1)
 	print listings
 	forsale = []
@@ -204,7 +208,10 @@ def for_sale():
 		print item
 		forsale.append(item)
 
-	return render_template("forsale.html", forsale_items=forsale)
+	if active_session():
+		return render_template("forsale.html", forsale_items=forsale, username=session['username'])
+	else:
+		return render_template("forsale.html", forsale_items=forsale)
 
 
 @app.route('/api/upload_pic', methods=['POST'])
@@ -268,5 +275,4 @@ def convert(input):
 
 
 if __name__ == '__main__':
-	app.debug = True
 	app.run()
