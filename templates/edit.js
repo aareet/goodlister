@@ -1,8 +1,4 @@
-var images = [];
-
-if("{{details.photos}}" == "") {
-	console.log("empty");
-}
+var images = {{details.photos}};
 
 $('#uploadfile').on('change', handle_upload_button);
 $('#post').on('click', function(event) {
