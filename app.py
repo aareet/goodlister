@@ -125,15 +125,15 @@ def edit(listing_id):
 			return "Sorry, you're not allowed to do that", 405
 		else:
 			listing_details = listing.get_parameters()
-			new_post = 'ff'
+			new_post = None
 			if 'photos' in listing_details:
 				listing_details['photos'] = convert(json.loads(listing_details['photos']))
-			else:
+			if listing.is_live == 0:
 				new_post = True
 			return render_template('edit_listing.html', username=session['username'], 
 				details = listing_details, listing_id=listing.objectId, pic=session['pic'], new_post=new_post)
-	# TODO: redirect to sign up form
-	return redirect(url_for('index'))
+	else:
+		return redirect(url_for('index'))
 
 
 @app.route('/gl/<listing_id>')
