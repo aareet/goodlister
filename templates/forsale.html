@@ -6,23 +6,29 @@
 	</head>
 	
 <body>
-	<div class="forsale_container">
-
-		{% if forsale_items %}
-			<h3 class="my_listings_h">Stuff for sale</h3>
-		{% endif %}
-		<ul class="forsale_items">
-		{% for item in forsale_items %}
-			<li>
-
-				<a href="{{item.link}}">
-					<img src="{{item.photos[0]}}">
-					<div class="item_title">{{item.title}}</div>
-					<div class="item_price">{{item.price}}</div>
-				</a>
-			</li>
-		{% endfor %}
-		</ul>
+	<div class="main_container">
+		<header class="app_header">
+			<div class="logo">goodlister</div>
+			<nav>
+				<ul>
+					<li><a href="/forsale">Buy</a></li><li><a href="/">Sell</a></li><li><a href="/" class="settings">Settings</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="content">
+			<h3 class="forsale_h">Stuff for sale</h3>
+			<ul class="forsale_grid">
+			{% for item in forsale_items %}
+				<li>
+					<a href="{{item.link}}">
+						<img src="{{item.photos[0]}}">
+						<div class="item_title">{{item.title}}</div>
+						<div class="item_price">{{item.price}}</div>
+					</a>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
 	</div>
 	<script>
 		

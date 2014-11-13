@@ -263,7 +263,9 @@ a.sell_item {
   width: 321px;
   color: #fff;
   font-size: 1.2em;
-  display: block; }
+  display: block;
+  text-align: center;
+  margin: 20px auto; }
   @media only screen and (min-width: 768px) {
     a.sell_item {
       font-size: 1.3em;
@@ -302,7 +304,7 @@ a.buy, a.share, a.post {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.1em;
-  margin: 20px auto; }
+  margin: 20px; }
   .gl_button:hover {
     background: #fff;
     color: #e74c3c; }
@@ -329,11 +331,25 @@ a.buy, a.share, a.post {
   font-weight: 300;
   font-size: 1.4em; }
 
+a.sell_new_item {
+  width: 321px;
+  color: #fff;
+  font-size: 1.3em;
+  display: block;
+  text-align: center;
+  margin: 0 auto; }
+  @media only screen and (max-width: 768px) {
+    a.sell_new_item {
+      font-size: 1.3em; } }
+
 .my_listings {
   list-style: none; }
   .my_listings li {
-    width: 40%;
-    margin: 25px auto; }
+    width: 50%;
+    margin: 2% auto; }
+    @media only screen and (min-width: 768px) {
+      .my_listings li {
+        width: 25%; } }
   .my_listings a {
     color: #000;
     display: block;
@@ -354,29 +370,115 @@ a.buy, a.share, a.post {
   font-weight: 100;
   margin-top: 5%; }
 
-.forsale_items {
+.forsale_grid {
   list-style: none;
-  margin: 0;
-  padding: 0; }
-  .forsale_items li {
+  padding: 5% 0 0 0; }
+  .forsale_grid li {
     text-align: center;
     display: inline-block;
-    width: 40%;
-    padding-right: 2%; }
-    .forsale_items li a {
+    min-width: 200px;
+    padding: 0 2% 5% 0; }
+    .forsale_grid li a {
       text-decoration: none;
       color: #000; }
-      .forsale_items li a .item_title {
+      .forsale_grid li a .item_title {
         font-size: 1em; }
-      .forsale_items li a .item_price {
+      .forsale_grid li a .item_price {
         font-size: 0.8em;
         color: #e74c3c; }
-      .forsale_items li a img {
+      .forsale_grid li a img {
         max-width: 200px;
         max-height: 200px; }
 
-.forsale_container {
+.main_container {
+  width: 100%;
   background: white; }
-  @media only screen and (min-width: 768px) {
-    .forsale_container {
-      width: 65%; } }
+
+.app_header {
+  width: 100%;
+  border-bottom: 1px solid #000;
+  height: 95px; }
+  @media only screen and (max-width: 768px) {
+    .app_header {
+      height: 97px; } }
+
+.logo {
+  font-size: 1.6em;
+  width: 30%;
+  height: 95px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 2%;
+  text-transform: uppercase;
+  letter-spacing: 0.6em;
+  font-weight: bold;
+  text-align: left; }
+  @media only screen and (max-width: 768px) {
+    .logo {
+      height: 47.5px;
+      font-size: 1.4em;
+      width: 100%;
+      display: block; } }
+
+nav {
+  display: inline-block;
+  width: 69%;
+  text-align: right; }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 95px; }
+    nav ul li {
+      display: inline-block; }
+      nav ul li a {
+        margin: 0;
+        padding: 2%;
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        min-width: 140px;
+        height: 95px;
+        font-size: 1.4em;
+        text-decoration: none;
+        color: #0a1013 !important;
+        text-align: center;
+        border-left: 1px solid #000; }
+        nav ul li a:hover {
+          background: #0a1013;
+          color: #fff !important; }
+        @media only screen and (max-width: 768px) {
+          nav ul li a {
+            min-width: 100px;
+            height: 47.5px; } }
+      nav ul li a.settings {
+        text-transform: uppercase;
+        font-size: 0.8em; }
+        nav ul li a.settings:hover {
+          background: none;
+          color: #0a1013 !important; }
+    @media only screen and (max-width: 768px) {
+      nav ul {
+        height: 47.5px; } }
+  @media only screen and (max-width: 768px) {
+    nav {
+      display: block;
+      width: 100%;
+      text-align: center;
+      border-top: 1px solid #000; } }
+
+.content {
+  padding: 2%; }
+
+.dashboard {
+  text-align: center; }
+  @media only screen and (max-width: 768px) {
+    .dashboard {
+      padding-top: 10%; } }
+
+.forsale_h {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: 100; }

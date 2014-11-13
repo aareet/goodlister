@@ -331,6 +331,8 @@ a.sell_item {
 	color: #fff;
 	font-size: 1.2em;
 	display: block;
+	text-align: center;
+	margin: 20px auto;
 
 	@media only screen and (min-width: 768px) {
 		font-size: 1.3em;
@@ -375,7 +377,7 @@ a.buy, a.share, a.post {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 0.1em;
-	margin: 20px auto;
+	margin: 20px;
 	&:hover {
 		background: #fff;
 		color: $fg;
@@ -409,13 +411,30 @@ a.buy, a.share, a.post {
 	font-size: 1.4em;
 }
 
+a.sell_new_item {
+	width: 321px;
+	color: #fff;
+	font-size: 1.3em;
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+
+	@media only screen and (max-width: 768px) {
+		font-size: 1.3em;
+	}
+}
+
 .my_listings {
 	list-style: none;
 
 	li {
-		width: 40%;
-		margin: 25px auto;
+		width: 50%;
+		margin: 2% auto;
+		@media only screen and (min-width: 768px) {
+			width: 25%;
+		}
 	}
+
 
 	a {
 		color: #000;
@@ -443,17 +462,17 @@ a.buy, a.share, a.post {
 	margin-top: 5%;
 }
 
-.forsale_items {
+.forsale_grid {
 	list-style: none;
-	margin: 0;
-	padding: 0;
+	padding: 5% 0 0 0;
 	li {
 		text-align: center;
 		display: inline-block;
-		width: 40%;
-		padding-right: 2%;
+		min-width: 200px;
+		padding: 0 2% 5% 0;
 
 		a {
+
 			text-decoration: none;
 			color: #000;
 			.item_title {
@@ -473,11 +492,121 @@ a.buy, a.share, a.post {
 	}
 }
 
-.forsale_container {
-
+.main_container {
+	width: 100%;
 	background: $mainbg;
+}
 
-	@media only screen and (min-width: 768px) {
-		width: 65%;
+$header_h: 95px;
+
+.app_header {
+	width: 100%;
+	border-bottom: 1px solid #000;
+	height: $header_h;
+	@media only screen and (max-width: 768px) {
+		height: $header_h + 2;
 	}
+}
+
+.logo {
+	font-size: 1.6em;
+	width: 30%;
+	height: $header_h;
+	display: inline-block;
+	vertical-align: top;
+	padding: 2%;
+	
+	text-transform: uppercase;
+	letter-spacing: 0.6em;
+	font-weight: bold;
+	text-align: left;
+	
+	@media only screen and (max-width: 768px) {
+		height: $header_h / 2;
+		font-size: 1.4em;
+		width: 100%;
+		display: block;
+	}
+}
+
+nav {
+	display: inline-block;
+
+	width: 69%;
+	text-align: right;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: $header_h;
+
+		li {
+			display: inline-block;
+			a {
+				margin: 0;
+				padding: 2%;
+				display: table-cell;
+				vertical-align: middle;
+
+				width: 100%;
+				min-width: 140px;
+				height: $header_h;
+
+				font-size: 1.4em;
+				text-decoration: none;
+				color: $fg2 !important;
+				text-align: center;
+
+				border-left: 1px solid #000;
+
+				&:hover {
+					background: $fg2;
+					color: #fff !important;
+				}
+				@media only screen and (max-width: 768px) {
+					min-width: 100px;
+					height: $header_h/2;
+				}
+			}
+
+			a.settings {
+				text-transform: uppercase;
+				font-size: 0.8em;
+				&:hover {
+					background: none;
+					color: $fg2 !important;
+				}
+			}
+		}
+
+		@media only screen and (max-width: 768px) {
+			height: $header_h/2;
+		}
+	}
+	@media only screen and (max-width: 768px) {
+		display: block;
+		width: 100%;
+		text-align: center;
+		border-top: 1px solid #000;
+	}
+}
+
+.content {
+	padding: 2%;
+	
+}
+
+.dashboard {
+	text-align: center;
+	@media only screen and (max-width: 768px) {
+		padding-top: 10%;
+	}
+}
+
+.forsale_h {
+	margin: 0;
+	padding: 0;
+	font-size: 2em;
+	text-transform: uppercase;
+	font-weight: 100;
 }
