@@ -3,13 +3,14 @@
 	<head>
 		<title>Edit your listing</title>
 		{% include "header.html" %}
+		<meta id="photo_data" data-some="{{details.photos}}">
 	</head>
 	
 <body>
 	<div class="main">
 		<section class="seller">
-			<div class="masthead"><a href="/">Goodlister</a></div>
-			<div class="lister_avatar"><img src="{{pic}}"><a href="http://twitter.com/{{username}}">{{username}}</a></div>
+			<div class="masthead"><a href="/" id="">Goodlister</a></div>
+			<div class="lister_avatar"><img src="{{pic}}"><a href="http://twitter.com/{{username}}" target="_blank">{{username}}</a></div>
 		</section>
 		<header class="listing_h">
 			<textarea class="title_input" id="title" placeholder="Enter a title" autocomplete="off">{{details.title}}</textarea>

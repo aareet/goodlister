@@ -1,4 +1,10 @@
-var images = {{details.photos}};
+var images;
+
+if ($('#photo_data').attr('data-some') == "") {
+	images = [];
+} else {
+	images = $('#photo_data').attr('data-some');
+}
 
 $('#uploadfile').on('change', handle_upload_button);
 $('#post').on('click', function(event) {
